@@ -43,6 +43,9 @@
         setBackgroundColorById = (id, color) => {
             document.getElementById(id).style = "background-color: " + color;
         }
+        document.getElementById("colorPick").onclick = () => {
+            setBackgroundColorById("bg", document.getElementById("colorPick").value);
+        }
         mouseOverFunction = (el) => {
             el.style = "background-color: black";
         }
