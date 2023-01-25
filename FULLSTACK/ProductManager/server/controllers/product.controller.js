@@ -24,13 +24,13 @@ module.exports.oneProduct = (req, res) => {
 }
 
 module.exports.editProduct = (req, res) => {
-    Product.updateProduct({_id : req.params.id}, req.body, {new : true})
+    Product.findOneAndUpdate({_id : req.params.id}, req.body, {new : true})
         .then(updatedProduct => res.json(updatedProduct))
         .catch(err => res.json(err))
 }
 
 module.exports.deleteProduct = (req, res) => {
     Product.deleteOneProduct({_id : req.params.id})
-        .then(deleteProduct => res.json(deleteProduct))
+        .then(deleteConfirmation => res.json(deleteConfirmation))
         .catch(err => res.json(err))
 }

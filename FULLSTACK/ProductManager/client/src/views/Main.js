@@ -16,13 +16,16 @@ export default () => {
             .catch(err => console.log(err))
     }, [allProducts])
 
+    const removeFromDom = productId => {
+        setAllProducts(allProducts.filter(product => product._id != productId));
+    }
 
     return (
         <>
             <ProductForm />
             {
                 loaded &&
-                    <AllProducts allProducts = {allProducts} />
+                    <AllProducts allProducts = {allProducts} removeFromDom = {removeFromDom} />
             }
         </>
     )
