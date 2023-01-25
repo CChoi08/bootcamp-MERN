@@ -3,11 +3,12 @@ import { useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 const EditProduct = (props) => {
-
     const {id} = useParams()
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/oneProduct/${id}`)
@@ -26,7 +27,10 @@ const EditProduct = (props) => {
             price,
             description
         })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                navigate("/")
+            })
             .catch(err => console.log(err))
     }
 

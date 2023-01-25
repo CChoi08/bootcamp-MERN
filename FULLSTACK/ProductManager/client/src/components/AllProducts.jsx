@@ -4,8 +4,9 @@ import axios from "axios"
 
 const AllProducts = (props) => {
     const {removeProduct} = props
+
     const deleteProduct = (id) => {
-        axios.delete(`/http://localhost:8000/api/product/delete/${id}`)
+        axios.delete(`http://localhost:8000/api/product/delete/${id}`)
             .then(res => {
                 removeProduct(id)
             })
